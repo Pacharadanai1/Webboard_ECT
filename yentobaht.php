@@ -2,7 +2,7 @@
 
 $rate = 0.24;
 
-$y = $_GET['yen'];
+$y = $_POST['yen'];
 
 $baht = $y * $rate;
 
