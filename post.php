@@ -30,7 +30,7 @@
             </tr>
         </table>
         <br>
-        <a href="index.html">กลับไปหน้าหลัก</a>
+        <a  href="index.html">กลับไปหน้าหลัก</a>
     </div>
 
 </body>
