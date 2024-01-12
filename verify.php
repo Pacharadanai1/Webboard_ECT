@@ -12,16 +12,28 @@
     <h1>Webboard KakKak</h1>
     <hr>
     <div>
-        เข้าสู่ระบบด้วย
-        <br>
         <?php
 
         $l = $_POST['login'];
         $p = $_POST['pwd'];
+        
+        $l1 = "admin";
+        $p1 = "ad1234";
+        $l2 = "member";
+        $p2 = "mem1234";
 
-        echo "Login = $l" . "<BR>";
-        echo "Password = $p" . "<BR>";
+        if($l == $l1 && $p == $p1){
+            echo "ยินดีตอนรับคุณ ADMIN";
+        }
+        elseif($l == $l2 && $p == $p2){
+            echo "ยินดีตอนรับคุณ MEMBER";
+        }
+        else{
+            echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง";
+        }
         ?>
+        <br>
+        <a href="index.php">กลับไปยังหน้าหลัก</a>
     </div>
 
 </body>

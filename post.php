@@ -15,7 +15,17 @@
         <?php
         $id = $_GET['id'];
 
-        echo "ต้องการดูกระทู้หมายเลข $id" . "<BR>";
+        $e = "คู่";
+        $o = "คี่";
+
+        if(($id % 2) == 0){
+            echo "ต้องการดูกระทู้หมายเลข $id" . "<BR>";
+            echo "เป็นกระทู้หมายเลข$e" . "<BR>";
+        }
+        else{
+            echo "ต้องการดูกระทู้หมายเลข $id" . "<BR>";
+            echo "เป็นกระทู้หมายเลข$o" . "<BR>";
+        }
         ?>
         <table align="center">
             <tr>
@@ -23,14 +33,14 @@
                 <br>
             </tr>
             <tr>
-                <td><textarea name="message" id="" cols="70" rows="10"></textarea></td>
+                <td><textarea name="message" id="" cols="100" rows="10"></textarea></td>
             </tr>
             <tr>
                 <td><input type="submit" value="ส่งข้อความ"></td>
             </tr>
         </table>
         <br>
-        <a  href="index.html">กลับไปหน้าหลัก</a>
+        <a  href="index.php">กลับไปหน้าหลัก</a>
     </div>
 
 </body>
