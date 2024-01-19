@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['id'])) {
+    header("location:http://localhost/Webboard_ECT/index.php");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +53,7 @@
         </table>
         <br>
         <div>
-            ถ้ายังไม่ได้เป็นสมาชิก<a href="index.html">กลับไปหน้าหลัก</a>
+            ถ้ายังไม่ได้เป็นสมาชิก<a href="index.php">กลับไปหน้าหลัก</a>
         </div>
     </form>
 </body>

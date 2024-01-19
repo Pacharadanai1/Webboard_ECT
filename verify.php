@@ -1,3 +1,13 @@
+
+<?php
+
+    session_start();
+    
+    if (isset($_SESSION['id'])) {
+        header("location:http://localhost/Webboard_ECT/index.php");
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +22,7 @@
     <h1>Webboard KakKak</h1>
     <hr>
     <div>
-        <?php
+        <?php      
 
         $l = $_POST['login'];
         $p = $_POST['pwd'];
@@ -23,9 +33,17 @@
         $p2 = "mem1234";
 
         if($l == $l1 && $p == $p1){
+            $_SESSION['username'] = 'admin';
+            $_SESSION['role'] = 'a';
+            $_SESSION['id'] = session_id();
+
             echo "ยินดีตอนรับคุณ ADMIN";
         }
         elseif($l == $l2 && $p == $p2){
+            $_SESSION['username'] = 'member';
+            $_SESSION['role'] = 'm';
+            $_SESSION['id'] = session_id();
+            
             echo "ยินดีตอนรับคุณ MEMBER";
         }
         else{

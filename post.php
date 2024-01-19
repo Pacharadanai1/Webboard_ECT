@@ -18,18 +18,17 @@
         $e = "คู่";
         $o = "คี่";
 
-        if(($id % 2) == 0){
+        if (($id % 2) == 0) {
             echo "ต้องการดูกระทู้หมายเลข $id" . "<BR>";
             echo "เป็นกระทู้หมายเลข$e" . "<BR>";
-        }
-        else{
+        } else {
             echo "ต้องการดูกระทู้หมายเลข $id" . "<BR>";
             echo "เป็นกระทู้หมายเลข$o" . "<BR>";
         }
         ?>
         <table align="center">
             <tr>
-                <td style="text-align: left; background-color :violet" >แสดงความคิดเห็น</td>
+                <td style="text-align: left; background-color :violet">แสดงความคิดเห็น</td>
                 <br>
             </tr>
             <tr>
@@ -40,7 +39,7 @@
             </tr>
         </table>
         <br>
-        <a  href="index.php">กลับไปหน้าหลัก</a>
+        <a href="index.php">กลับไปหน้าหลัก</a>
     </div>
 
 </body>
