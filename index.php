@@ -24,32 +24,25 @@ session_start();
                 <ul class="navbar-nav">
                     <?php if (!isset($_SESSION['id'])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link text-white" aria-current="page" href="login.php"><i class="bi bi-pencil-square"></i>เข้าสู่ระบบ</a>
+                            <a class="nav-link text-white" aria-current="page" href="login.php">
+                                <i class="bi bi-pencil-square"></i>เข้าสู่ระบบ
+                            </a>
                         </li>
                     <?php } else { ?>
                         <li class="nav-item dropdown ">
                             <a class="btn btn-outline-info dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-<<<<<<< Updated upstream
-                            <i class="bi bi-person-circle"></i><?php echo $_SESSION['username'] ?>
-=======
-                                <i class="bi bi-person-circle"></i><?php echo $_SESSION['username'] ?>
->>>>>>> Stashed changes
+                                <i class="bi bi-person-circle"> </i><?php echo $_SESSION['username'] ?>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="logout.php"><i class="bi bi-power"></i>ออกจากระบบ</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="logout.php">
+                                        <i class="bi bi-power"></i>ออกจากระบบ</a>
+                                </li>
                         </li>
                     <?php } ?>
                 </ul>
             </div>
         </nav>
-<<<<<<< Updated upstream
-        <form>
-            หมวดหมู่ <select name "Category">
-                <option value="all">--ทั้งหมด--</option>
-                <option value="geraral">เรื่องทั่วไป</option>
-                <option value="study">เรื่องเรียน</option>
-            </select>
-=======
         <div class="mt-3 d-flex justify-content-between">
             <div>
                 <label>หมวดหมู่</label>
@@ -64,41 +57,30 @@ session_start();
                     </ul>
                 </span>
             </div>
-            <?php if(isset($_SESSION['id'])){?>
-            <div>
-                <a href="newpost.php" class="btn btn-success btn-sm">
-                    <i class="bi bi-plus"></i>สร้างกระทู้ใหม่
-                </a>
-            </div>
-            <?php }?>
+            <?php if (isset($_SESSION['id'])) { ?>
+                <div>
+                    <a href="newpost.php" class="btn btn-success btn-sm">
+                        <i class="bi bi-plus"></i>สร้างกระทู้ใหม่
+                    </a>
+                </div>
+            <?php } ?>
         </div>
-        <form>
-
->>>>>>> Stashed changes
+        <table class="table table-striped mt-3">
             <?php
-            if (!isset($_SESSION['id'])) {
-                echo "<a href=login.php style='float: right;'></a>";
-            } else {
-                echo "<div style='float: right;'>
-            <a href=logout.php></a>
-        </div>";
-                echo "<br><a href=newpost.php>สร้างกระทู้ใหม่</a>";
+            for ($i = 1; $i <= 10; $i++) {
+                echo "<tr>
+                        <td class='d-flex justify-content-between'><a href=post.php?id=$i style=text-decoration:none>กระทู้ที่ $i</a>";
+
+                if (isset($_SESSION['id']) && $_SESSION['role'] == 'a') {
+                    echo "&nbsp;&nbsp;<a href=delete.php?id=$i class='btn btn-danger btn-sm'>
+                    <i class='bi bi-trash3'></i></a>";
+                }
+                echo "</tr></td>";
             }
+
             ?>
+        </table>
 
-        </form>
-
-        <?php
-        for ($i = 1; $i <= 10; $i++) {
-            echo "<li><a href=post.php?id=$i>กระทู้ที่ $i</a>";
-
-            if (isset($_SESSION['id']) && $_SESSION['role'] == 'a') {
-                echo "&nbsp;&nbsp;<a href=delete.php?id=$i>ลบ</a>";
-            }
-            echo "</li>";
-        }
-
-        ?>
     </div>
 </body>
 
