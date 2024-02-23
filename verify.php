@@ -19,9 +19,6 @@
 </head>
 
 <body>
-    <h1>Webboard KakKak</h1>
-    <hr>
-    <div>
         <?php      
 
         $l = $_POST['login'];
@@ -32,27 +29,29 @@
         $l2 = "member";
         $p2 = "mem1234";
 
+        
         if($l == $l1 && $p == $p1){
-            $_SESSION['username'] = 'admin';
+            $_SESSION['username'] = 'Admin';
             $_SESSION['role'] = 'a';
             $_SESSION['id'] = session_id();
 
-            echo "ยินดีตอนรับคุณ ADMIN";
+            header("location:index.php");
+            die();
         }
         elseif($l == $l2 && $p == $p2){
-            $_SESSION['username'] = 'member';
+            $_SESSION['username'] = 'Member';
             $_SESSION['role'] = 'm';
             $_SESSION['id'] = session_id();
             
-            echo "ยินดีตอนรับคุณ MEMBER";
+            header("location:index.php");
+            die();
         }
         else{
-            echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง";
+            $_SESSION['error']='error';
+            header("location:login.php");
+            die();
         }
         ?>
-        <br>
-        <a href="index.php">กลับไปยังหน้าหลัก</a>
-    </div>
 
 </body>
 
