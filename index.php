@@ -1,3 +1,4 @@
+</html>
 <?php
 session_start();
 ?>
@@ -28,7 +29,11 @@ session_start();
                     <?php } else { ?>
                         <li class="nav-item dropdown ">
                             <a class="btn btn-outline-info dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<<<<<<< Updated upstream
                             <i class="bi bi-person-circle"></i><?php echo $_SESSION['username'] ?>
+=======
+                                <i class="bi bi-person-circle"></i><?php echo $_SESSION['username'] ?>
+>>>>>>> Stashed changes
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="logout.php"><i class="bi bi-power"></i>ออกจากระบบ</a></li>
@@ -37,12 +42,39 @@ session_start();
                 </ul>
             </div>
         </nav>
+<<<<<<< Updated upstream
         <form>
             หมวดหมู่ <select name "Category">
                 <option value="all">--ทั้งหมด--</option>
                 <option value="geraral">เรื่องทั่วไป</option>
                 <option value="study">เรื่องเรียน</option>
             </select>
+=======
+        <div class="mt-3 d-flex justify-content-between">
+            <div>
+                <label>หมวดหมู่</label>
+                <span class="dropdown">
+                    <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        --ทั้งหมด--
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">ทั้งหมด</a></li>
+                        <li><a class="dropdown-item" href="#">เรื่องเรียน</a></li>
+                        <li><a class="dropdown-item" href="#">เรื่องทั่วไป</a></li>
+                    </ul>
+                </span>
+            </div>
+            <?php if(isset($_SESSION['id'])){?>
+            <div>
+                <a href="newpost.php" class="btn btn-success btn-sm">
+                    <i class="bi bi-plus"></i>สร้างกระทู้ใหม่
+                </a>
+            </div>
+            <?php }?>
+        </div>
+        <form>
+
+>>>>>>> Stashed changes
             <?php
             if (!isset($_SESSION['id'])) {
                 echo "<a href=login.php style='float: right;'></a>";
