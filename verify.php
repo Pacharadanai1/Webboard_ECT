@@ -1,4 +1,3 @@
-
 <?php
 
     session_start();
@@ -7,52 +6,26 @@
         header("location:http://localhost/Webboard_ECT/index.php");
         die();
     }
+
+    $login = $_POST['login'];
+    $pwd = $_POST['pwd'];
+
+    $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+    $sql = "SELECT * FROM user WHERE login='$login' AND password=sha1('$pwd')";
+    $result = $conn->query($sql);
+
+    if($result->rowCount() ==1 ){
+        $data = $result->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['username'] = $data['login'];
+        $_SESSION['role'] = $data['role'];
+        $_SESSION['user'] = $data['user'];
+        $_SESSION['id'] = $data['id'];
+        header("location:index.php");
+        die();
+    }else{
+        $_SESSION['error'] = "error";
+        header("location:login.php");
+        die();
+    }
+   $conn = null;     
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-        <?php      
-
-        $l = $_POST['login'];
-        $p = $_POST['pwd'];
-        
-        $l1 = "admin";
-        $p1 = "ad1234";
-        $l2 = "member";
-        $p2 = "mem1234";
-
-        
-        if($l == $l1 && $p == $p1){
-            $_SESSION['username'] = '<i class="bi bi-person-circle"> </i> Admin';
-            $_SESSION['role'] = 'a';
-            $_SESSION['id'] = session_id();
-
-            header("location:index.php");
-            die();
-        }
-        elseif($l == $l2 && $p == $p2){
-            $_SESSION['username'] = '<i class="bi bi-person-lines-fill"></i> Member';
-            $_SESSION['role'] = 'm';
-            $_SESSION['id'] = session_id();
-            
-            header("location:index.php");
-            die();
-        }
-        else{
-            $_SESSION['error']='error';
-            header("location:login.php");
-            die();
-        }
-        ?>
-
-</body>
-
-</html>

@@ -11,7 +11,7 @@
                     <?php } else { ?>
                         <li class="nav-item dropdown ">
                             <a class="btn btn-outline-info dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['username'] ?>
+                            <i class="bi bi-person-circle"></i> <?php echo $_SESSION['username'] ?>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
