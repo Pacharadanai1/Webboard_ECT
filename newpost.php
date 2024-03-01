@@ -19,42 +19,39 @@ if (!isset($_SESSION['id'])) {
 </head>
 
 <body>
-    <h1>Webboard KakKak</h1>
-    <hr>
-    <div>
-        <form action="">
-            <table align="center">
-                <tr style="text-align: center;">
-                    <td>ผู้ใช้: <?php echo $_SESSION['username'] ?>
-                        <hr>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="float: left;">หมวดหมู่: <select name="category" id="">
-                            <option value="all">--ทั้งหมด--</option>
-                            <option value="gerral">เรื่องทั่วไป</option>
-                            <option value="study">เรื่องเรียน</option>
-                        </select>
-
-                    </td>
-
-                </tr>
-                <tr>
-                    <td style="float: left;">หัวข้อ: <input type="text"></td>
-                </tr>
-                <tr>
-                    <td style="float: left;">เนื้อหา: </td>
-                    <td style="float: left;"><textarea name="message" id="" cols="21" rows="2"></textarea></td>
-                </tr>
-                <tr>
-                    <td style="float: right;"><input type="submit" value="บันทึกข้อความ"></td>
-                </tr>
-            </table>
-        </form>
-        <br>
-        <a href="index.php">กลับไปหน้าหลัก</a>
+    <div class="container">
+        <h1 style="text-align: center;" class="mt-3">WebKakKak</h1>
+        <?php include "nav.php" ?>
+        <div class="row mt-4">
+            <div class="col-lg-3 col-md-2 col-sm-1"></div>
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="card border-info">
+                    <div class="hearder bg-info text-white">ตั้งกระทู้ใหม่</div>
+                    <div class="card-body">
+                        <form action="newpost_save.php" method="post">
+                            <div class="row">
+                                <label class="col-lg-3 col-form-label">หมวดหมู่</label>
+                                <div class="col-lg-9">
+                                    <select name="category" class="form-select">
+                                        <?php 
+                                            $conn=new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+                                            $sql="SELECT * FROM category";
+                                            foreach($conn->query($sql) as $row){
+                                                echo "<option value=$row[id]>$row[name]></option>";
+                                            }
+                                            $conn=null;
+                                        ?>
+                                    </select>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
     </div>
-
 </body>
 
 </html>
