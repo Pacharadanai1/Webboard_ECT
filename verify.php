@@ -18,8 +18,8 @@
         $data = $result->fetch(PDO::FETCH_ASSOC);
         $_SESSION['username'] = $data['login'];
         $_SESSION['role'] = $data['role'];
-        $_SESSION['user'] = $data['user'];
-        $_SESSION['id'] = $data['id'];
+        $_SESSION['user_id'] = $data['id'];
+        $_SESSION['id'] =session_id();
         header("location:index.php");
         die();
     }else{

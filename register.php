@@ -35,6 +35,7 @@ if (isset($_SESSION['id'])) {
                         }
                         unset($_SESSION['add_login']);
                     }
+                    
                 ?>
                 <div class="card border-primary">
                     <div class="card-header bg-primary text-white">เข้าสู่ระบบ</div>
@@ -50,6 +51,12 @@ if (isset($_SESSION['id'])) {
                                 <label class="col-lg-3 col-form-label" for="pass">รหัสผ่าน</label>
                                 <div class="col-lg-9">
                                     <input type="password" name="pwd" id="pass" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label class="col-lg-3 col-form-label" for="pass2">ใส่รหัสผ่านซ้ำ</label>
+                                <div class="col-lg-9">
+                                    <input type="password" name="pwd2" id="pass2" class="form-control" required>
                                 </div>
                             </div>
                             <div class="row mt-3">
