@@ -86,7 +86,7 @@ if (isset($_SESSION['id'])) {
                                     <button type="submit" class="btn btn-primary btn-sm me-2">
                                         <i class="bi bi-save"></i> สมัครสมาชิก
                                     </button>
-                                    <button type="reset" class="btn btn-primary btn-sm me-2">
+                                    <button type="reset" class="btn btn-danger btn-sm me-2">
                                         <i class="bi bi-x-square"></i> ยกเลิก
                                     </button>
                                 </div>
