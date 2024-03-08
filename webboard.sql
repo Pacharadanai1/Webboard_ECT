@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2024 at 05:45 AM
+-- Generation Time: Mar 08, 2024 at 06:22 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,6 +32,15 @@ CREATE TABLE `category` (
   `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, 'เรื่องเรียน'),
+(2, 'เรื่องกีฬา'),
+(3, 'เรื่องทั่วไป');
+
 -- --------------------------------------------------------
 
 --
@@ -43,8 +52,15 @@ CREATE TABLE `comment` (
   `content` varchar(20148) COLLATE utf8_unicode_ci NOT NULL,
   `post_date` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
-  `post_11` int(11) NOT NULL
+  `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `content`, `post_date`, `user_id`, `post_id`) VALUES
+(1, 'วิ่งไหนสุดหล่อ', '2024-03-08 11:07:38', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -61,6 +77,15 @@ CREATE TABLE `post` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) VALUES
+(3, 'ไปเที่ยวไหนดี', 'อยากเที่ยว', '2024-03-08 08:52:08', 1, 1),
+(4, 'หิวข้าว', 'เมื่อไหร่จะเที่ยง', '2024-03-08 10:39:05', 1, 1),
+(5, 'ตอนเย็นไปวิ่งดีกว่า', 'อยากออกกำลังกาย', '2024-03-08 10:46:31', 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +101,14 @@ CREATE TABLE `user` (
   `email` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `role` char(1) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `name`, `gender`, `email`, `role`) VALUES
+(1, 'pon', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ponn', 'm', 'pon@gmail.com', 'm'),
+(2, 'admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'IHerPonn', 'o', 'Herpon@gmail.com', 'a');
 
 --
 -- Indexes for dumped tables
@@ -113,25 +146,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
