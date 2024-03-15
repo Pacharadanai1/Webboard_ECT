@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2024 at 06:22 AM
+-- Generation Time: Mar 15, 2024 at 05:55 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -60,7 +60,8 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `content`, `post_date`, `user_id`, `post_id`) VALUES
-(1, 'วิ่งไหนสุดหล่อ', '2024-03-08 11:07:38', 1, 5);
+(2, 'ไปไกลๆ', '2024-03-15 10:01:30', 3, 3),
+(3, 'ไปซะ', '2024-03-15 10:21:01', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -82,9 +83,8 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) VALUES
-(3, 'ไปเที่ยวไหนดี', 'อยากเที่ยว', '2024-03-08 08:52:08', 1, 1),
-(4, 'หิวข้าว', 'เมื่อไหร่จะเที่ยง', '2024-03-08 10:39:05', 1, 1),
-(5, 'ตอนเย็นไปวิ่งดีกว่า', 'อยากออกกำลังกาย', '2024-03-08 10:46:31', 2, 1);
+(3, 'ไปเที่ยวไหนดี', 'อยากเที่ยว', '2024-03-08 08:52:08', 3, 1),
+(4, 'หิวข้าว', 'เมื่อไหร่จะเที่ยง', '2024-03-08 10:39:05', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +108,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `login`, `password`, `name`, `gender`, `email`, `role`) VALUES
 (1, 'pon', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ponn', 'm', 'pon@gmail.com', 'm'),
-(2, 'admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'IHerPonn', 'o', 'Herpon@gmail.com', 'a');
+(2, 'admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'IHerPonn', 'o', 'Herpon@gmail.com', 'a'),
+(3, 'yiw', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'yiw', 'm', 'yiw@gmail.com', 'm'),
+(4, 'hor', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'hor', 'm', 'hor@gmail.com', 'm');
 
 --
 -- Indexes for dumped tables
@@ -152,19 +154,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

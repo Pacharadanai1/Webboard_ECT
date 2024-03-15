@@ -1,7 +1,7 @@
-</html>
 <?php
 session_start();
 ?>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +12,13 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
     <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function myFunction(){
+            let r = confirm("ต้องการที่จะลบหรือไม่?");
+            return r;
+        }
+    </script>
 </head>
 
 <body>
@@ -59,7 +66,9 @@ session_start();
                 style=text-decoration:none>$row[1]</a><br>$row[3] - $row[4]</div>";
                 if(isset($_SESSION['id']) && $_SESSION['role']=='a'){
                     echo "<div class='me-2 mt-2'>
-                        <a href=delete.php?id=$row[2] class='btn btn-danger'><i class='bi bi-trash'></i></a>
+                        <a href=delete.php?id=$row[2] class='btn btn-danger' 
+                        onclick='return myFunction()'>
+                        <i class='bi bi-trash'></i></a>
                     </div>";
                 }
             echo "</td></tr>";

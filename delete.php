@@ -4,8 +4,16 @@ session_start();
 $id = $_GET['id'];
 
 if (isset($_SESSION['id']) && ($_SESSION['role']) == 'a') {
-    echo "ลบการทู้หมายเลข $id";
+    $id = $_GET['id'];
+    $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+    $sql = "DELETE FROM post WHERE id=$id";
+    $conn->exec($sql);
+    $sql="DELETE FROM comment WHERE post_id=$id";
+    $conn->exec($sql);
+    $conn = null;
+    header("location:index.php");
+    die();
 } else {
-    header("location:http://localhost/Webboard_ECT/index.php");
+    header("location:index.php");
     die();
 }
