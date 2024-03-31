@@ -13,7 +13,13 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
     <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
-
+    
+    <script>
+        function myFunction(){
+            let r = confirm("ต้องการที่จะลบหรือไม่?");
+            return r;
+        }
+    </script>
 
 </head>
 
@@ -101,7 +107,7 @@ session_start();
             </div>
             <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Save changes</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 
             </div>
             </div>
