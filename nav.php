@@ -15,6 +15,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a class="dropdown-item" href="category.php">
+                                        <i class="bi bi-bookmarks-fill"></i> จัดการหมวดหมู่</a>
+                                    <a class="dropdown-item" href="">
+                                        <i class="bi bi-person-check-fill"></i></i> จัดการผู้ใช้งาน</a>
                                     <a class="dropdown-item" href="logout.php">
                                         <i class="bi bi-power"></i>ออกจากระบบ</a>
                                 </li>
